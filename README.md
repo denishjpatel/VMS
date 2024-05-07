@@ -42,3 +42,4 @@ To run the test suite and verify the functionality of the endpoints:
 # API documenatation
 
    - For the API documentation you can see file(postman collection) `test_task.postman_collection`
+   - Just import it inside the postman collection 
