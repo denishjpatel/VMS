@@ -48,7 +48,6 @@ def update_average_response_time(sender, instance, **kwargs):
             )
         )['avg_response_time']
 
-        print(average_response_time)
         # Convert timedelta to seconds
         if average_response_time is not None:
             average_response_time_seconds = average_response_time.total_seconds()
@@ -62,18 +61,11 @@ def update_average_response_time(sender, instance, **kwargs):
 
 @receiver(post_save, sender=PurchaseOrder)
 def update_fulfillment_rate(sender, instance, **kwargs):
-    print("called")
     if instance.status:
-        print("inside if")
         vendor = instance.vendor
         total_pos = PurchaseOrder.objects.filter(vendor=vendor).count()
-        print("total pos", total_pos)
         fulfilled_pos = PurchaseOrder.objects.filter(vendor=vendor, status='completed').exclude(quality_rating__isnull=True).count()
-        print("fulfilled pos", fulfilled_pos)
         if total_pos > 0:
-            print("inside if2")
             fulfillment_rate = (fulfilled_pos / total_pos) * 100
-            print("fulfillment rate", fulfillment_rate)
             vendor.fulfillment_rate = fulfillment_rate
             vendor.save()
-            print("vendor saved")

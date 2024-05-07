@@ -1,6 +1,6 @@
 from django.db import models
 from vendors.models import Vendor
-
+from django.utils import timezone
 
 class PurchaseOrder(models.Model):
     po_number = models.CharField(max_length=100, unique=True)
@@ -11,5 +11,5 @@ class PurchaseOrder(models.Model):
     quantity = models.IntegerField()
     status = models.CharField(max_length=100, choices=[('pending', 'Pending'), ('completed', 'Completed'), ('canceled', 'Canceled')], default='pending')
     quality_rating = models.FloatField(null=True, blank=True)
-    issue_date = models.DateTimeField()
+    issue_date = models.DateTimeField(default=timezone.now)
     acknowledgment_date = models.DateTimeField(null=True, blank=True)
