@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "5563a16b-96e2-45e8-82e3-2824182d0bb3",
+		"name": "Fatmug",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17086860"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api-token-auth/",
+							"host": [
+								"{{local}}api-token-auth"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "create vendor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vendor 1\",\r\n    \"contact_details\": \"1234567890\",\r\n    \"address\": \"sad fs fgads gf dfg fdgfdg dfg dsfg d fg fdg  dgd gdf d fg dfgdfg fdsg df gd fg fds\",\r\n    \"vendor_code\": \"v01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/vendors/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"vendors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all vendors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/vendors/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"vendors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific vendor details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/vendors/3/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"vendors",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update vendor details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{local}}api/vendors/3/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"vendors",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete vendor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/vendors/3/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"vendors",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchase",
+			"item": [
+				{
+					"name": "Create purchase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"po_number\": \"p1\",\r\n    \"vendor\": 1,\r\n    \"order_date\": \"2024-05-02\",\r\n    \"delivery_date\": \"2024-05-05\",\r\n    \"items\": \"item 1\",\r\n    \"quantity\": \"2\",\r\n    \"issue_date\": \"2024-05-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/purchase_orders/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"purchase_orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Purchase",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/purchase_orders/2/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"purchase_orders",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all purchases",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/purchase_orders/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"purchase_orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update purchase",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"completed\",\r\n    \"vendor\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/purchase_orders/4/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"purchase_orders",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Purchase",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/purchase_orders/2/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"purchase_orders",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Acknowledgment Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/purchase_orders/3/acknowledge",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"purchase_orders",
+								"3",
+								"acknowledge"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor Performance",
+			"item": [
+				{
+					"name": "vendor's performance metrics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 19e67d86753a7cb3992591589f1dfc76e4881b3c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{local}}api/vendors/1/performance/",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"vendors",
+								"1",
+								"performance",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8000/",
+			"type": "string"
+		}
+	]
+}
